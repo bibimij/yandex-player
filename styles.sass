@@ -1,0 +1,89 @@
+body
+  margin: 0
+  padding: 50px
+  font-family: Arial,"Helvetica neue",sans-serif
+
+.player
+  .drop-zone
+    box-sizing: border-box
+    height: 100px
+    width: 640px
+    padding: 10px
+    color: #aaa
+    background: #fafafa
+    display: table-cell
+    text-align: center
+    vertical-align: middle
+    position: relative
+    overflow: hidden
+
+    &:hover
+      u
+        text-decoration: none
+
+    &.over
+      background: #ddd
+
+      &:before
+        display: block
+        color: #333
+        border: 5px dashed #333
+
+    [type=file]
+      position: absolute
+      top: 0
+      left: 0
+      font-size: 100px
+      cursor: pointer
+      opacity: 0
+
+  .controls
+    margin: 10px 0
+
+  .button
+    border: 0
+    background: transparent
+    display: inline-block
+    border: 1px solid #333
+    color: #333
+    font-size: 16px
+    margin-right: 10px
+    width: 60px
+
+    &:disabled
+      color: #ccc
+      border-color: #ccc
+
+    &:before
+      content: 'play'
+
+    &.play:before
+      content: 'play'
+
+    &.pause:before
+      content: 'pause'
+
+  .track
+    background: #eee
+    width: 500px
+    height: 10px
+    position: relative
+    display: inline-block
+
+    .progress
+      background: #ddd
+      height: 100%
+      position: absolute
+
+    .scrubber
+      content: ''
+      background: #000
+      width: 5px
+      height: 100%
+      cursor: pointer
+      position: absolute
+      top: 0
+      margin-left: -5px
+
+  .file-name
+    margin: 0 0 10px

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Music player</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="player">
+    <div class="drop-zone" id="dropzone">
+      <u>Выберите</u> или перетащите файл сюда
+      <input type="file" id="file-selector" accept="audio/*">
+    </div>
+
+    <div class="controls">
+      <button type="button" class="button" disabled></button>
+      <div class="track">
+        <div class="progress"></div>
+        <div class="scrubber"></div>
+      </div>
+    </div>
+
+    <div class="file-name">&nbsp;</div>
+
+    <canvas class="analyser" width="640" height="100"></canvas>
+  </div>
+  <script src="player.js"></script>
+</body>
+</html>

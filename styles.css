@@ -1,0 +1,89 @@
+/* line 1, styles.sass */
+body {
+  margin: 0;
+  padding: 50px;
+  font-family: Arial, "Helvetica neue", sans-serif; }
+
+/* line 7, styles.sass */
+.player .drop-zone {
+  box-sizing: border-box;
+  height: 100px;
+  width: 640px;
+  padding: 10px;
+  color: #aaa;
+  background: #fafafa;
+  display: table-cell;
+  text-align: center;
+  vertical-align: middle;
+  position: relative;
+  overflow: hidden; }
+  /* line 21, styles.sass */
+  .player .drop-zone:hover u {
+    text-decoration: none; }
+  /* line 24, styles.sass */
+  .player .drop-zone.over {
+    background: #ddd; }
+    /* line 27, styles.sass */
+    .player .drop-zone.over:before {
+      display: block;
+      color: #333;
+      border: 5px dashed #333; }
+  /* line 32, styles.sass */
+  .player .drop-zone [type=file] {
+    position: absolute;
+    top: 0;
+    left: 0;
+    font-size: 100px;
+    cursor: pointer;
+    opacity: 0; }
+/* line 40, styles.sass */
+.player .controls {
+  margin: 10px 0; }
+/* line 43, styles.sass */
+.player .button {
+  border: 0;
+  background: transparent;
+  display: inline-block;
+  border: 1px solid #333;
+  color: #333;
+  font-size: 16px;
+  margin-right: 10px;
+  width: 60px; }
+  /* line 53, styles.sass */
+  .player .button:disabled {
+    color: #ccc;
+    border-color: #ccc; }
+  /* line 57, styles.sass */
+  .player .button:before {
+    content: "play"; }
+  /* line 60, styles.sass */
+  .player .button.play:before {
+    content: "play"; }
+  /* line 63, styles.sass */
+  .player .button.pause:before {
+    content: "pause"; }
+/* line 66, styles.sass */
+.player .track {
+  background: #eee;
+  width: 500px;
+  height: 10px;
+  position: relative;
+  display: inline-block; }
+  /* line 73, styles.sass */
+  .player .track .progress {
+    background: #ddd;
+    height: 100%;
+    position: absolute; }
+  /* line 78, styles.sass */
+  .player .track .scrubber {
+    content: "";
+    background: #000;
+    width: 5px;
+    height: 100%;
+    cursor: pointer;
+    position: absolute;
+    top: 0;
+    margin-left: -5px; }
+/* line 88, styles.sass */
+.player .file-name {
+  margin: 0 0 10px; }
