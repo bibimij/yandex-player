@@ -22,11 +22,11 @@ body {
     text-decoration: none; }
   /* line 24, styles.sass */
   .player .drop-zone.over {
-    background: #ddd; }
-    /* line 27, styles.sass */
-    .player .drop-zone.over:before {
+    background: #ddd;
+    color: #666; }
+    /* line 28, styles.sass */
+    .player .drop-zone.over:after {
       display: block;
-      color: #333;
       border: 5px dashed #333; }
   /* line 32, styles.sass */
   .player .drop-zone [type=file] {
@@ -38,43 +38,46 @@ body {
     opacity: 0; }
 /* line 40, styles.sass */
 .player .controls {
-  margin: 10px 0; }
-/* line 43, styles.sass */
+  margin: 10px 0;
+  font-size: 0; }
+/* line 44, styles.sass */
 .player .button {
-  border: 0;
   background: transparent;
   display: inline-block;
+  box-sizing: border-box;
   border: 1px solid #333;
   color: #333;
   font-size: 16px;
-  margin-right: 10px;
-  width: 60px; }
-  /* line 53, styles.sass */
+  margin-right: 15px;
+  width: 60px;
+  height: 30px;
+  vertical-align: top; }
+  /* line 56, styles.sass */
   .player .button:disabled {
     color: #ccc;
     border-color: #ccc; }
-  /* line 57, styles.sass */
+  /* line 60, styles.sass */
   .player .button:before {
     content: "play"; }
-  /* line 60, styles.sass */
+  /* line 63, styles.sass */
   .player .button.play:before {
     content: "play"; }
-  /* line 63, styles.sass */
+  /* line 66, styles.sass */
   .player .button.pause:before {
     content: "pause"; }
-/* line 66, styles.sass */
+/* line 69, styles.sass */
 .player .track {
   background: #eee;
-  width: 500px;
-  height: 10px;
+  width: 565px;
+  height: 30px;
   position: relative;
   display: inline-block; }
-  /* line 73, styles.sass */
+  /* line 76, styles.sass */
   .player .track .progress {
     background: #ddd;
     height: 100%;
     position: absolute; }
-  /* line 78, styles.sass */
+  /* line 81, styles.sass */
   .player .track .scrubber {
     content: "";
     background: #000;
@@ -84,6 +87,7 @@ body {
     position: absolute;
     top: 0;
     margin-left: -5px; }
-/* line 88, styles.sass */
+/* line 91, styles.sass */
 .player .file-name {
-  margin: 0 0 10px; }
+  margin: 0 0 10px;
+  font-size: 12px; }

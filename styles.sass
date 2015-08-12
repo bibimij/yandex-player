@@ -23,10 +23,10 @@ body
 
     &.over
       background: #ddd
+      color: #666
 
-      &:before
+      &:after
         display: block
-        color: #333
         border: 5px dashed #333
 
     [type=file]
@@ -39,16 +39,19 @@ body
 
   .controls
     margin: 10px 0
+    font-size: 0
 
   .button
-    border: 0
     background: transparent
     display: inline-block
+    box-sizing: border-box
     border: 1px solid #333
     color: #333
     font-size: 16px
-    margin-right: 10px
+    margin-right: 15px
     width: 60px
+    height: 30px
+    vertical-align: top
 
     &:disabled
       color: #ccc
@@ -65,8 +68,8 @@ body
 
   .track
     background: #eee
-    width: 500px
-    height: 10px
+    width: 565px
+    height: 30px
     position: relative
     display: inline-block
 
@@ -87,3 +90,4 @@ body
 
   .file-name
     margin: 0 0 10px
+    font-size: 12px

@@ -7,10 +7,7 @@
 </head>
 <body>
   <div class="player">
-    <div class="drop-zone" id="dropzone">
-      <u>Выберите</u> или перетащите файл сюда
-      <input type="file" id="file-selector" accept="audio/*">
-    </div>
+    <canvas class="analyser" width="640" height="100"></canvas>
 
     <div class="controls">
       <button type="button" class="button" disabled></button>
@@ -22,8 +19,15 @@
 
     <div class="file-name">&nbsp;</div>
 
-    <canvas class="analyser" width="640" height="100"></canvas>
+    <div class="drop-zone" id="dropzone">
+      <u>Выберите</u> или перетащите файл сюда
+      <input type="file" id="file-selector" accept="audio/*">
+    </div>
   </div>
-  <script src="player.js"></script>
+  <script src="js/player.js"></script>
+  <script src="js/analyser.js"></script>
+  <script>
+    var player = new Player('.player');
+  </script>
 </body>
 </html>
