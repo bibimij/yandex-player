@@ -1,16 +1,18 @@
-function Player (el) {
+function Player(el) {
   this.ac = new (window.AudioContext || webkitAudioContext)();
-  this.el = el;
+
+  this.el = document.querySelector(el);
   this.dropzone = document.querySelector('#dropzone');
-  this.button = el.querySelector('.button');
-  this.track = el.querySelector('.track');
-  this.progress = el.querySelector('.progress');
-  this.scrubber = el.querySelector('.scrubber');
-  this.fileSelector = el.querySelector('#file-selector');
-  this.fileName = el.querySelector('.file-name');
+  this.button = this.el.querySelector('.button');
+  this.track = this.el.querySelector('.track');
+  this.progress = this.el.querySelector('.progress');
+  this.scrubber = this.el.querySelector('.scrubber');
+  this.fileSelector = this.el.querySelector('#file-selector');
+  this.fileName = this.el.querySelector('.file-name');
+
+  this.analyser = new Analyser(this.ac, this.el);
 
   this.bindEvents();
-  this.analyserCanvasInit();
 }
 
 Player.prototype.bindEvents = function() {
@@ -42,9 +44,9 @@ Player.prototype.decode = function(arrayBuffer) {
     this.buffer = audioBuffer;
     this.seek(0);
     this.draw();
-    this.analyserInit();
+    this.analyser.clear();
     this.play();
-    this.analyserDraw();
+    this.analyser.draw();
   }.bind(this));
 };
 
@@ -55,8 +57,8 @@ Player.prototype.connect = function() {
 
   this.source = this.ac.createBufferSource();
   this.source.buffer = this.buffer;
-  this.source.connect(this.analyser);
-  this.analyser.connect(this.ac.destination);
+  this.source.connect(this.analyser.instance);
+  this.analyser.instance.connect(this.ac.destination);
 };
 
 Player.prototype.play = function(position) {
@@ -226,63 +228,3 @@ Player.prototype.draw = function() {
 
   this.button.disabled = false;
 };
-
-Player.prototype.analyserInit = function() {
-  this.analyserCanvasInit();
-
-  var analyser = this.ac.createAnalyser();
-
-  analyser.minDecibels = -90;
-  analyser.maxDecibels = -10;
-  analyser.smoothingTimeConstant = 0.9;
-  analyser.fftSize = 512;
-
-  this.canvasBufferLength = analyser.frequencyBinCount;
-  this.canvasDataArray = new Uint8Array(this.canvasBufferLength);
-
-  this.analyser = analyser;
-};
-
-Player.prototype.analyserCanvasInit = function() {
-  var canvas = this.el.querySelector('.analyser');
-
-  this.analyserContext = canvas.getContext('2d');
-  this.canvasWidth = canvas.width;
-  this.canvasHeight = canvas.height;
-
-  this.canvasClear();
-
-  this.analyserCanvas = canvas;
-};
-
-Player.prototype.canvasClear = function() {
-  this.analyserContext.clearRect(0, 0, this.canvasWidth, this.canvasHeight);
-
-  this.analyserContext.fillStyle = 'rgb(0, 0, 0)';
-  this.analyserContext.fillRect(0, 0, this.canvasWidth, this.canvasHeight);
-};
-
-Player.prototype.analyserDraw = function() {
-  this.analyser.getByteFrequencyData(this.canvasDataArray);
-
-  this.analyserContext.fillStyle = 'rgb(0, 0, 0)';
-  this.analyserContext.fillRect(0, 0, this.canvasWidth, this.canvasHeight);
-
-  var barWidth = (this.canvasWidth / this.canvasBufferLength) * 2.5;
-  var barHeight;
-  var x = 0;
-
-  for (var i = 0; i < this.canvasBufferLength; i++) {
-    barHeight = this.canvasDataArray[i];
-
-    this.analyserContext.fillStyle = 'rgb(' + (255 - barHeight) + ',255,' + (255 - barHeight) + ')';
-    this.analyserContext.fillRect(x, this.canvasHeight - barHeight / 2, barWidth, barHeight / 2);
-
-    x += barWidth + 1;
-  }
-
-  requestAnimationFrame(this.analyserDraw.bind(this));
-};
-
-var playerElement = document.querySelector('.player');
-var player = new Player(playerElement);
