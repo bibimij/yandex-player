@@ -1,10 +1,10 @@
-/* line 1, styles.sass */
+/* line 1, ../../sources/css/styles.sass */
 body {
   margin: 0;
   padding: 50px;
   font-family: Arial, "Helvetica neue", sans-serif; }
 
-/* line 7, styles.sass */
+/* line 7, ../../sources/css/styles.sass */
 .player .drop-zone {
   box-sizing: border-box;
   height: 100px;
@@ -17,18 +17,18 @@ body {
   vertical-align: middle;
   position: relative;
   overflow: hidden; }
-  /* line 21, styles.sass */
+  /* line 21, ../../sources/css/styles.sass */
   .player .drop-zone:hover u {
     text-decoration: none; }
-  /* line 24, styles.sass */
+  /* line 24, ../../sources/css/styles.sass */
   .player .drop-zone.over {
     background: #ddd;
     color: #666; }
-    /* line 28, styles.sass */
+    /* line 28, ../../sources/css/styles.sass */
     .player .drop-zone.over:after {
       display: block;
       border: 5px dashed #333; }
-  /* line 32, styles.sass */
+  /* line 32, ../../sources/css/styles.sass */
   .player .drop-zone [type=file] {
     position: absolute;
     top: 0;
@@ -36,11 +36,11 @@ body {
     font-size: 100px;
     cursor: pointer;
     opacity: 0; }
-/* line 40, styles.sass */
+/* line 40, ../../sources/css/styles.sass */
 .player .controls {
   margin: 10px 0;
   font-size: 0; }
-/* line 44, styles.sass */
+/* line 44, ../../sources/css/styles.sass */
 .player .button {
   background: transparent;
   display: inline-block;
@@ -52,32 +52,32 @@ body {
   width: 60px;
   height: 30px;
   vertical-align: top; }
-  /* line 56, styles.sass */
+  /* line 56, ../../sources/css/styles.sass */
   .player .button:disabled {
     color: #ccc;
     border-color: #ccc; }
-  /* line 60, styles.sass */
+  /* line 60, ../../sources/css/styles.sass */
   .player .button:before {
     content: "play"; }
-  /* line 63, styles.sass */
+  /* line 63, ../../sources/css/styles.sass */
   .player .button.play:before {
     content: "play"; }
-  /* line 66, styles.sass */
+  /* line 66, ../../sources/css/styles.sass */
   .player .button.pause:before {
     content: "pause"; }
-/* line 69, styles.sass */
+/* line 69, ../../sources/css/styles.sass */
 .player .track {
   background: #eee;
   width: 565px;
   height: 30px;
   position: relative;
   display: inline-block; }
-  /* line 76, styles.sass */
+  /* line 76, ../../sources/css/styles.sass */
   .player .track .progress {
     background: #ddd;
     height: 100%;
     position: absolute; }
-  /* line 81, styles.sass */
+  /* line 81, ../../sources/css/styles.sass */
   .player .track .scrubber {
     content: "";
     background: #000;
@@ -87,7 +87,7 @@ body {
     position: absolute;
     top: 0;
     margin-left: -5px; }
-/* line 91, styles.sass */
+/* line 91, ../../sources/css/styles.sass */
 .player .file-name {
   margin: 0 0 10px;
   font-size: 12px; }
