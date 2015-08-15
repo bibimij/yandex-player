@@ -111,7 +111,7 @@ Player.prototype.toggle = function() {
 };
 
 Player.prototype.onTrackClick = function(e) {
-  if ( ! this.buffer || e.target.className != 'track') {
+  if ( ! this.buffer || e.target.classList.contains('scrubber')) {
     return false;
   }
 

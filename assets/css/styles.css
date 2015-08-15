@@ -85,9 +85,8 @@ body {
     height: 100%;
     cursor: pointer;
     position: absolute;
-    top: 0;
-    margin-left: -5px; }
-/* line 91, ../../sources/css/styles.sass */
+    top: 0; }
+/* line 90, ../../sources/css/styles.sass */
 .player .file-name {
   margin: 0 0 10px;
   font-size: 12px; }
